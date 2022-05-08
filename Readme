@@ -1,0 +1,14 @@
+The project aims to provide inputs for analytics purposes by extracting and transforming the data into formats deployable for business intelligence. 
+In order to do that, we extract song and log data from the S3 bucket in AWS, and load it back into S3 as a set of tables after the needed transformations.
+
+How to Run the scripts:
+Load the AWS user credentials in dl.cfg. Next process would be to use the etl.py file to import the modules, and use the functions for processing the song dataset and the log dataset. The functions will extract the two source tables from S3 and produce the following tables. While running on AWS expect long processing times, in the order of 2-10 minutes for some tables to get extracted or processed considering the volume of data.
+
+songs_table: contains ["song_id", "title", "artist_id", "year", "duration"]
+artists_table: "artist_id", "artist_name", "artist_location", "artist_latitude", "artist_longitude"
+users_table: "userId", "firstName", "lastName", "gender", "level"
+time_table: Start time, hour, day, week, month, year, weekday 
+song_log_joined_table
+
+
+you have to set the dl.cfg file with your username and access key for AWS. Be sure to not use quotes
